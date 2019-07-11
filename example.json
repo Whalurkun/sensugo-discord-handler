@@ -1,0 +1,249 @@
+{
+  "timestamp": 1562847102,
+  "entity": {
+    "entity_class": "agent",
+    "system": {
+      "hostname": "prod",
+      "os": "linux",
+      "platform": "ubuntu",
+      "platform_family": "debian",
+      "platform_version": "18.04",
+      "network": {
+        "interfaces": [
+          {
+            "name": "lo",
+            "addresses": [
+              "127.0.0.1/8",
+              "::1/128"
+            ]
+          },
+          {
+            "name": "enp0s31f6",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "192.168.0.42/24",
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          },
+          {
+            "name": "wlp3s0",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": null
+          },
+          {
+            "name": "docker0",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "172.17.0.1/16",
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          },
+          {
+            "name": "br-c0f487783f64",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "172.21.0.1/16"
+	        ]
+          },
+          {
+            "name": "br-90aacb3624d4",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "172.19.0.1/16",
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          },
+          {
+            "name": "vethd08d2f6",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          },
+          {
+            "name": "br-2edcf896c553",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "172.20.0.1/16",
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          },
+          {
+            "name": "vethff7a26b",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          },
+          {
+            "name": "veth2be130a",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          },
+          {
+            "name": "veth2730455",
+            "mac": "aa:bb:cc:dd:ee:ff",
+            "addresses": [
+              "aaaa::bbbb:cccc:dddd:eeee/64"
+            ]
+          }
+        ]
+      },
+      "arch": "amd64"
+    },
+    "subscriptions": [
+      "entity:prod",
+      "entity:prod"
+    ],
+    "last_seen": 1562847093,
+    "deregister": false,
+    "deregistration": {},
+    "user": "agent",
+    "redact": [
+      "password",
+      "passwd",
+      "pass",
+      "api_key",
+      "api_token",
+      "access_key",
+      "secret_key",
+      "private_key",
+      "secret"
+    ],
+    "metadata": {
+      "name": "prod",
+      "namespace": "default"
+    }
+  },
+  "check": {
+    "command": "/usr/local/bin/sensu-scripts/scripts/check-http.sh https://api.runarsf.dev",
+    "handlers": [],
+    "high_flap_threshold": 0,
+    "interval": 360,
+    "low_flap_threshold": 0,
+    "publish": true,
+    "runtime_assets": null,
+    "subscriptions": [
+      "entity:prod"
+    ],
+    "proxy_entity_name": "prod",
+    "check_hooks": null,
+    "stdin": false,
+    "subdue": null,
+    "ttl": 0,
+    "timeout": 0,
+    "round_robin": false,
+    "duration": 0.035766805,
+    "executed": 1562847102,
+    "history": [
+      {
+        "status": 0,
+        "executed": 1562840982
+      },
+      {
+        "status": 0,
+        "executed": 1562841342
+      },
+      {
+        "status": 0,
+        "executed": 1562841702
+      },
+      {
+        "status": 0,
+        "executed": 1562842062
+      },
+      {
+        "status": 0,
+        "executed": 1562842422
+      },
+      {
+        "status": 0,
+        "executed": 1562842782
+      },
+      {
+        "status": 0,
+        "executed": 1562843142
+      },
+      {
+        "status": 0,
+        "executed": 1562843502
+      },
+      {
+        "status": 0,
+        "executed": 1562843862
+      },
+      {
+        "status": 0,
+        "executed": 1562844222
+      },
+      {
+        "status": 0,
+        "executed": 1562844582
+      },
+      {
+        "status": 0,
+        "executed": 1562844942
+      },
+      {
+        "status": 0,
+        "executed": 1562845302
+      },
+      {
+        "status": 0,
+        "executed": 1562845662
+      },
+      {
+        "status": 0,
+        "executed": 1562846022
+      },
+      {
+        "status": 1,
+        "executed": 1562846086
+      },
+      {
+        "status": 1,
+        "executed": 1562846382
+      },
+      {
+        "status": 0,
+        "executed": 1562846411
+      },
+      {
+        "status": 1,
+        "executed": 1562846526
+      },
+      {
+        "status": 0,
+        "executed": 1562846742
+      },
+      {
+        "status": 0,
+        "executed": 1562847102
+      },
+      {
+        "status": 0,
+        "executed": 1562847462
+      }
+    ],
+    "issued": 1562847462,
+    "output": "Site available.\n",
+    "state": "passing",
+    "status": 0,
+    "total_state_change": 17,
+    "last_ok": 1562847462,
+    "occurrences": 3,
+    "occurrences_watermark": 3,
+    "output_metric_format": "",
+    "output_metric_handlers": null,
+    "env_vars": null,
+    "metadata": {
+      "name": "api.runarsf.dev",
+      "namespace": "default"
+    }
+  },
+  "metadata": {
+    "namespace": "default"
+  }
+}
