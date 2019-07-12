@@ -13,14 +13,27 @@ def getHost(parser):
         return parser['entity']['metadata']['name']
 
 def getStatus(ret):
+    # 3172760 = 306998 (python-blue)
     if ret == 0:
-        return 'OK'
+        return {
+            "identifier": "OK",
+            "color": 5097865 # 4DC989 (light green)
+        }
     elif ret == 1:
-        return 'WARNING'
+        return {
+            "identifier": "WARNING",
+            "color": 16707634 # FEF032 (yellow)
+        }
     elif ret == 2:
-        return 'CRITICAL'
+        return {
+            "identifier": "CRITICAL",
+            "color": 16658176 # FE2F00 (red)
+        }
     else:
-        return 'UNKNOWN'
+        return {
+            "identifier": "UNKNOWN",
+            "color": 16542464 # FC6B00 (orange)
+        }
 
 if __name__ == "__main__":
     WEBHOOK_URL = str(os.environ.get('WEBHOOK_URL', ''))
@@ -33,7 +46,8 @@ if __name__ == "__main__":
     host = getHost(piped)
     check = piped['check']['metadata']['name']
     output = str(piped['check']['output']).replace('\n', '')
-    status = getStatus(piped['check']['status'])
+    status = getStatus(piped['check']['status'])['identifier']
+    statusColor = getStatus(piped['check']['status'])['color']
 
     # Discord doesn't have tables, this is one way to solve it, another would be to use embeds
     dashes = len(max([str(host), str(check), str(output), str(status)], key = len)) + 2 # (16+2) (2 is for spaces)
@@ -60,7 +74,7 @@ if __name__ == "__main__":
         embed = {
 	    "title": str(host),
             "description": "",
-            "color": 3172760,
+            "color": statusColor, # decimal color
             "fields": [
                 {
                     "name": "Check",
@@ -68,7 +82,7 @@ if __name__ == "__main__":
                     "inline": True
                 },
                 {
-                    "name": "Satus",
+                    "name": "Status",
                     "value": status,
                     "inline": True
                 },
