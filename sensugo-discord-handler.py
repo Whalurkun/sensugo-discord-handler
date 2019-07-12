@@ -26,7 +26,7 @@ if __name__ == "__main__":
     WEBHOOK_URL = str(os.environ.get('WEBHOOK_URL', ''))
     AVATAR_URL = str(os.environ.get('ICON_URL', 'https://docs.sensu.io/images/sensu-logo-icon-dark@2x.png'))
     USERNAME = str(os.environ.get('USERNAME', 'SensuGo'))
-    USE_EMBED = bool(os.environ.get('USE_EMBED', False))
+    USE_EMBED = str(os.environ.get('USE_EMBED', False))
 
     piped = json.loads(''.join(sys.stdin.readlines()))
 
@@ -54,14 +54,32 @@ if __name__ == "__main__":
     }
 
     # https://discordapp.com/developers/docs/resources/channel#embed-object
-    if bool(USE_EMBED):
+    if USE_EMBED.lower() == 'true':
         data["content"] = ""
 
-        data["embeds"] = []
-        embed = {}
-        embed["title"] = str(host)
-        embed["description"] = content
-        data["embeds"].append(embed)
+        embed = {
+	    "title": str(host),
+            "description": "",
+            "color": 3172760,
+            "fields": [
+                {
+                    "name": "Check",
+                    "value": check,
+                    "inline": True
+                },
+                {
+                    "name": "Satus",
+                    "value": status,
+                    "inline": True
+                },
+                {
+                    "name": "Output",
+                    "value": output,
+                    "inline": False
+                }
+            ]
+	}
+        data["embeds"] = [embed]
 
     poster = requests.post(WEBHOOK_URL, data=json.dumps(data), headers={"Content-Type": "application/json"})
 

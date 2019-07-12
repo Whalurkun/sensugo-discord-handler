@@ -1,0 +1,21 @@
+{
+  "type": "CheckConfig",
+  "api_version": "core/v2",
+  "metadata": {
+    "name": "check_name",
+    "namespace": "default"
+  },
+  "spec": {
+    "command": "echo Hello World!",
+    "interval": 360,
+    "proxy_entity_name": "entity_name",
+    "publish": true,
+    "round_robin": false,
+    "subscriptions": [
+      "entity:entity_name"
+    ],
+    "handlers": [
+      "discord"
+    ]
+  }
+}
