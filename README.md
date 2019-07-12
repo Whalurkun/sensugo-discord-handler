@@ -1,11 +1,7 @@
 # sensugo-discord-handler
+Get status updates from SensuGo directly in Discord!
 
-# Screenshots
-![USE_EMBED=False](https://i.runarsf.dev/xMmvcP3bjw.png)
-![USE_EMBED=True](https://i.runarsf.dev/9zTfL5tzkT.png)
-![SensuGo Dashboard](https://i.runarsf.dev/tVArSKgBHs.png)
-
-# Setup <sub>`B`ackend `A`gent</sub>
+## Setup <sup>(`B`ackend `A`gent)</sup>
 0. `B` Clone the repository
 ```bash
 git clone https://github.com/runarsf/sensugo-discord-handler.git
@@ -49,5 +45,15 @@ You can also remove the `spec` > `filters` array from `handler.json` and recreat
 
 
 ## SensuGo Handler Docs
-https://docs.sensu.io/sensu-go/5.11/reference/handlers/
+https://docs.sensu.io/sensu-go/5.11/reference/handlers/<br>
 Note: SensuGo handlers are run on the Backend, not on the Agent.
+
+
+## Screenshots
+![USE_EMBED=False](https://i.runarsf.dev/xMmvcP3bjw.png)
+![USE_EMBED=True](https://i.runarsf.dev/9zTfL5tzkT.png)
+![SensuGo Dashboard](https://i.runarsf.dev/tVArSKgBHs.png)
+
+
+> **sensugo-discord-handler** © [runarsf](https://github.com/runarsf) · Author and maintainer.<br>
+> Released under the [MIT](https://github.com/runarsf/sensugo-discord-handler/blob/master/LICENSE) License.
