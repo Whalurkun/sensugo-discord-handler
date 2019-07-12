@@ -1,0 +1,26 @@
+{
+  "type": "Handler",
+  "api_version": "core/v2",
+  "metadata": {
+    "name": "discord",
+    "namespace": "default"
+  },
+  "spec": {
+    "command": "sensugo-discord-handler",
+    "env_vars": [
+      "WEBHOOK_URL=https://discordapp.com/api/webhooks/AAAAAA/BBBBBBBBBB",
+      "USERNAME=SensuGo",
+      "ICON_URL=https://docs.sensu.io/images/sensu-logo-icon-dark@2x.png",
+	  "USE_EMBED=True"
+    ],
+    "filters": [
+      "is_incident",
+      "not_silenced",
+      "state_change_only"
+    ],
+    "handlers": [],
+    "runtime_assets": [],
+    "timeout": 0,
+    "type": "pipe"
+  }
+}
