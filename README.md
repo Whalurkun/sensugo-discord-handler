@@ -1,10 +1,11 @@
 # sensugo-discord-handler
 
-# SensuGo Handler Docs
-https://docs.sensu.io/sensu-go/5.11/reference/handlers/
-Note: SensuGo handlers are run on the Backend, not on the Agent.
+# Screenshots
+![USE_EMBED=False](https://i.runarsf.dev/xMmvcP3bjw.png)
+![USE_EMBED=True](https://i.runarsf.dev/9zTfL5tzkT.png)
+![SensuGo Dashboard](https://i.runarsf.dev/tVArSKgBHs.png)
 
-# Setup <sub>(steps prefixed with `B` are to be performed on the SensuGo Backend, `A` is for Agent)</sub>
+# Setup <sub>`B`ackend `A`gent</sub>
 0. `B` Clone the repository
 ```bash
 git clone https://github.com/runarsf/sensugo-discord-handler.git
@@ -33,13 +34,20 @@ sensuctl create --file handler.json
 ```
 5. `B` Create/Update your check(s)
 Add `discord` to the `handlers` array in your check, take a look at `check.json` for an example.
-6. `B` (Re)Create the Check from the file
+6. `B` (Re)create the Check from the file
 ```bash
 sensuctl create --file check.json
 ```
+
 
 ## Running a manual test (requires the ENV var `WEBHOOK_URL`)
 ```bash
 export WEBHOOK_URL=https://discordapp.com/api/webhooks/AAAAAA/BBBBBBBBB
 cat example.json | ./sensugo-discord-handler
 ```
+You can also remove the `spec` > `filters` array from `handler.json` and recreate the handler to get it to run every time a check assigned to it runs.
+
+
+## SensuGo Handler Docs
+https://docs.sensu.io/sensu-go/5.11/reference/handlers/
+Note: SensuGo handlers are run on the Backend, not on the Agent.
